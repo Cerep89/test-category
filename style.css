@@ -1,0 +1,7 @@
+/*Class for image page principala*/
+.img-principal{
+    height: 280px;
+    width: 102%;
+    display: block;
+    margin-bottom: 20px;
+}
