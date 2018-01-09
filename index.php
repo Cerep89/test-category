@@ -19,9 +19,8 @@ $language = getLanguage();
 $language = "en";
 $mysqli = new mysqli("127.0.0.1", "root", "mysql", "test-category");
 $mysqli->set_charset("utf8");
-$result_set = $mysqli->query("SELECT `title_$language` FROM `categry`");
-//$result_set = $mysqli->query("SELECT * FROM `categry` WHERE `id` = '1'");
-$article = $result_set->fetch_assoc();
+$result_set = $mysqli->query("SELECT `title_$language` FROM `category`");
+$categories = $result_set->fetch_all();
 $mysqli->close();
 $lang = new Language($language);
 ?>
@@ -35,8 +34,8 @@ $lang = new Language($language);
     <title><?=$lang->get("TITLE_MAIN")?></title>
 </head>
 <body>
-<?php var_dump($article);die;?>
-<h1><?=$lang->get("ARTICLES")?></h1>
-<h2><?=$article["title"]?></h2>
+<?php foreach ($categories as $category):?>
+<h2><?=$category[0];?></h2>
+<?php endforeach;?>
 </body>
 </html>
