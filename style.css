@@ -4,3 +4,10 @@
     display: block;
     margin-bottom: 20px;
 }
+.image-container{
+
+    background: #797676;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #fff;
+}
