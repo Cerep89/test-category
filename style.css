@@ -1,7 +1,13 @@
 /*Class for image page principala*/
 .img-principal{
-    height: 280px;
     width: 102%;
     display: block;
     margin-bottom: 20px;
+}
+.image-container{
+
+    background: #797676;
+    margin-bottom: 20px;
+    padding: 20px;
+    color: #fff;
 }
