@@ -11,7 +11,7 @@ if (isset($_GET['lang'])) {
 } else {
     $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 1);
     if (!in_array($language, array_keys($sites))) {
-        $language = 'ro';
+        $language = 'en';
     }
 }
 $mysqli = new mysqli("127.0.0.1", "root", "mysql", "test-category");
