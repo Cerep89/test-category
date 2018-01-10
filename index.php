@@ -1,41 +1,47 @@
-<?php
-require_once "language_class.php";
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
+<?php include "include/header.php";?>
 
-$sites = ["ro" => "Romana",
-    "en" => "English",
-];
-if (isset($_GET['lang'])) {
-    $language = $_GET['lang'];
-} else {
-    $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 1);
-    if (!in_array($language, array_keys($sites))) {
-        $language = 'en';
-    }
-}
-$mysqli = new mysqli("127.0.0.1", "root", "mysql", "test-category");
-$mysqli->set_charset("utf8");
-$result_set = $mysqli->query("SELECT `title_$language` FROM `category`");
-$categories = $result_set->fetch_all();
-$mysqli->close();
-$lang = new Language($language);
+<div class="row">
+    <div class="container">
+        <div class="col-sm-12 col-md-12">
 
-?>
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= $lang->get("TITLE_MAIN") ?></title>
-</head>
-<body>
-<a href="?lang=ro">RO</a>|<a href="?lang=en">EN</a>
-<h2><?=$lang->get("CATEGORIES")?> </h2>
-<?php foreach ($categories as $category): ?>
-    <h3><?= $category[0]; ?></h3>
-<?php endforeach; ?>
-</body>
-</html>
+            <div class="text-right">
+             <!--======================================
+             Add language button
+             =======================================-->
+                <button type="button" class="btn btn-primary"><a href="?lang=en">EN</a></button>
+                <button type="button" class="btn btn-primary"><a href="?lang=ro">RO</a></button>
+
+            </div>
+            <div class="text-center"
+              <!--======================================
+              Add button
+              =======================================-->
+                <button type="button" class="btn btn-primary">Category</button>
+                <button type="button" class="btn btn-primary">Cart</button>
+                <div class="center"><h1><?=$lang->get("CATEGORIES")?> </h1></div>
+            </div>
+            <!--=========================================
+                                  Container for category
+             ============================================-->
+
+<div class="row">
+    <div class="container text-center image-container ">
+        <?php foreach ($categories as $category): ?>
+        <div class="col-xs-12 col-sm-8 col-md-4">
+            <div class="image img-principal"><img src="image/01.jpg" alt="" ></div>
+
+            <h3><a href=""><?= $category[0];?></a></h3>
+        </div>
+
+        <?php endforeach; ?>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<?php include "include/footer.php";?>
+
