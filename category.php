@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Title</title>
-</head>
-<body>
-<div class="row">
-    <div class="container">
-        <div class="col-sm-12 col-md-12">
+<?php include "include/header.php";?>
 
-            <div class="text-right">
-                <!--======================================
-             Add language button
-             =======================================-->
-                <button type="button" class="btn btn-primary">en</button>
-                <button type="button" class="btn btn-primary">ro</button>
-
-            </div>
-            <div class="text-center">
-                <!--======================================
-              Add button
-              =======================================-->
-                <button type="button" class="btn btn-primary">Category</button>
-                <button type="button" class="btn btn-primary">Cart</button>
                 <h3>Products from category:Category name</h3>
-            </div>
 
 
             <!--==========================================
@@ -147,9 +120,5 @@
     </div>
 </div>
 </div>
-</body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<!-- Conect Bootstrap js -->
-<script src="bootstrap/js/bootstrap.min.js"></script>
-</html>
+
+<?php include "include/footer.php";?>
