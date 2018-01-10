@@ -37,3 +37,23 @@ $lang = new Language($language);
 
 </head>
 <body>
+<div class="row">
+    <div class="container">
+        <div class="col-sm-12 col-md-12">
+
+            <div class="text-right">
+                <!--======================================
+                Add language button
+                =======================================-->
+                <button type="button" class="btn btn-primary"><a href="?lang=en">EN</a></button>
+                <button type="button" class="btn btn-primary"><a href="?lang=ro">RO</a></button>
+
+            </div>
+            <div class="text-center"
+            <!--======================================
+            Add button
+            =======================================-->
+            <button type="button" class="btn btn-primary">Category</button>
+            <button type="button" class="btn btn-primary">Cart</button>
+            <div class="center"><h1><?=$lang->get("CATEGORIES")?> </h1></div>
+        </div>
