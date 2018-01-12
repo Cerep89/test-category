@@ -6,7 +6,11 @@
             <!--==========================================
                         Add first container for category
              ============================================-->
-
+<?php
+$cat = $_GET['category'];
+$category = getCategory($cat);
+foreach ($category as $catSelect):?>
+<?php var_dump($catSelect);die;?>
         <div class="row">
             <div class="container image-container">
                 <!--============================
@@ -22,7 +26,7 @@
                 <div class="col-md-8">
                     <div class="row">
                         <div class="col-md-4">
-                            <h2>Title</h2>
+                            <h2><?= $category['title_en']?></h2>
                         </div>
                         <div class="col-md-8 text-right">
                             <div class="price">20$
@@ -41,6 +45,7 @@
                 </div>
             </div>
         </div>
+    <?php endforeach;?>
             <!--==========================================
                         Add second container for category
              ============================================-->

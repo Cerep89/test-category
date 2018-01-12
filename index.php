@@ -11,7 +11,7 @@
         <div class="col-xs-12 col-sm-8 col-md-4">
             <div class="image img-principal"><img src="image/01.jpg" alt="" ></div>
 
-            <h3><a href=""><?= $category[0];?></a></h3>
+            <h3><a href="category.php?category=<?=$category[0]?>"><?= $category[0];?></a></h3>
         </div>
 
         <?php endforeach; ?>

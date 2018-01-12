@@ -8,3 +8,6 @@
 </footer>
 </body>
 </html>
+<?php
+closeConnection();
+?>

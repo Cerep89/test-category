@@ -1,26 +1,10 @@
 <?php
-require_once "language_class.php";
-error_reporting(E_ALL);
-ini_set("display_errors", 1);
-
-$sites = ["ro" => "Romana",
-    "en" => "English",
-];
-if (isset($_GET['lang'])) {
-    $language = $_GET['lang'];
-} else {
-    $language = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 1);
-    if (!in_array($language, array_keys($sites))) {
-        $language = 'en';
-    }
-}
-$mysqli = new mysqli("127.0.0.1", "root", "mysql", "test-category");
-$mysqli->set_charset("utf8");
-$result_set = $mysqli->query("SELECT `title_$language` FROM `category`");
-$categories = $result_set->fetch_all();
-$mysqli->close();
-$lang = new Language($language);
-
+require_once "./class/language_class.php";
+require_once "./functions/functions.php";
+checkError();
+setLanguage();
+include('./db/connection.php');
+$categories = getCategories();
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +29,16 @@ $lang = new Language($language);
                 <!--======================================
                 Add language button
                 =======================================-->
-                <button type="button" class="btn btn-primary"><a href="?lang=en">EN</a></button>
-                <button type="button" class="btn btn-primary"><a href="?lang=ro">RO</a></button>
+                <a href="?lang=en"><button type="button" class="btn btn-primary">EN</button></a>
+                <a href="?lang=ro"><button type="button" class="btn btn-primary">RO</button></a>
 
             </div>
             <div class="text-center"
             <!--======================================
             Add button
             =======================================-->
-            <button type="button" class="btn btn-primary">Category</button>
-            <button type="button" class="btn btn-primary">Cart</button>
+            <a href="index.php"><button type="button" class="btn btn-primary"><?= $lang->get("HOME") ?></button></a>
+            <a href="category.php"><button type="button" class="btn btn-primary"><?= $lang->get("CATEGORIES") ?></button></a>
+            <a href="cart.html"><button type="button" class="btn btn-primary"><?= $lang->get("CART") ?></button></a>
             <div class="center"><h1><?=$lang->get("CATEGORIES")?> </h1></div>
         </div>
